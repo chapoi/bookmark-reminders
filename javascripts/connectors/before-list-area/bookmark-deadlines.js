@@ -11,13 +11,11 @@ export default class BookmarkDeadline extends Component {
   thisWeekBookmarks = new TrackedArray();
 
   constructor() {
-    super(...arguments); //super calls fn of parent class (inheritance), …arguments is all arguments passed to constructor
-    // this.loadBookmarks().then((result) => {
-    //   this.bookmarks = result.user_bookmark_list.bookmarks.filter(
-    //     (bookmark) => bookmark.reminder_at !== null
-    //   );
-    //   console.log(this.bookmarks);
-    // });
+    super(...arguments);
+
+    if (!this.currentUser) {
+      return;
+    }
 
     const today = new Date();
 
@@ -62,26 +60,3 @@ export default class BookmarkDeadline extends Component {
     return ajax(url);
   }
 }
-
-// class parent {
-//   constructor() {
-//     console.log("parent");
-//   }
-
-//   parentMethod() {
-//     console.log("hi dadddy");
-//   }
-// }
-
-// class child extends parent {
-//   constructor() {
-//     super();
-//     this.parentMethod();
-//   }
-//   parentMethod() {
-//     super.parentMethod();
-//     console.log("hi child");
-//   }
-// }
-
-// new child();

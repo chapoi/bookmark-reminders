@@ -1,3 +1,6 @@
 en:
   theme_metadata:
-    description: "Deadline bookmarks"
+    description: "Bookmark reminders"
+  reminders:
+    in: "in"
+    no_reminders: "None"
