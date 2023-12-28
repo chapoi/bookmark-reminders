@@ -4,3 +4,5 @@ en:
   reminders:
     in: "in"
     no_reminders: "None"
+    expired: "expired"
+    ago: "ago"

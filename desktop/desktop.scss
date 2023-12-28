@@ -49,10 +49,20 @@
     &__item {
       display: flex;
       gap: 0.5rem;
+
+      &.--overdue {
+        flex-direction: column;
+        gap: 0;
+      }
     }
 
     &__timestamp {
       font-weight: bold;
+    }
+
+    &__overdue {
+      font-size: var(--font-down-1-rem);
+      color: var(--danger);
     }
     &__link {
       max-width: 100%;
@@ -67,6 +77,10 @@
       padding-bottom: 0.25rem;
       margin-top: 1.5em;
       border-bottom: 1px solid var(--primary-low-mid);
+
+      &.--overdue {
+        color: var(--danger);
+      }
     }
   }
 }

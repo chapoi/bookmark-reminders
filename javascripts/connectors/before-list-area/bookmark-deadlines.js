@@ -3,12 +3,14 @@ import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 import { TrackedArray } from "@ember-compat/tracked-built-ins";
 import { ajax } from "discourse/lib/ajax";
+import { formattedReminderTime } from "discourse/lib/bookmark";
 
 export default class BookmarkDeadline extends Component {
   @service currentUser;
   @tracked bookmarks;
   todayBookmarks = new TrackedArray();
   thisWeekBookmarks = new TrackedArray();
+  overdueBookmarks = new TrackedArray();
 
   constructor() {
     super(...arguments);
@@ -36,8 +38,11 @@ export default class BookmarkDeadline extends Component {
           const reminderDate = bookmark.reminder_at
             ? new Date(bookmark.reminder_at)
             : null;
-
-          if (reminderDate.toDateString() === today.toDateString()) {
+          console.log(reminderDate, today);
+          if (reminderDate <= today) {
+            // Overdue/Expired reminder
+            this.overdueBookmarks.push(bookmark);
+          } else if (reminderDate.toDateString() === today.toDateString()) {
             // Reminder for today
             this.todayBookmarks.push(bookmark);
           } else if (reminderDate >= startOfWeek && reminderDate <= endOfWeek) {
@@ -51,7 +56,7 @@ export default class BookmarkDeadline extends Component {
 
       console.log("Bookmarks for today:", this.todayBookmarks);
       console.log("Bookmarks for this week:", this.thisWeekBookmarks);
-      console.log("Remaining bookmarks:", restBookmarks);
+      console.log("Overdue bookmarks:", this.overdueBookmarks);
     });
   }
 
@@ -59,4 +64,11 @@ export default class BookmarkDeadline extends Component {
     let url = `/u/${this.currentUser.username}/bookmarks.json`;
     return ajax(url);
   }
+
+  // formattedReminder(bookmarkReminderAt, currentUser) {
+  //   return formattedReminderTime(
+  //     bookmarkReminderAt,
+  //     currentUser.user_option.timezone
+  //   );
+  // }
 }
