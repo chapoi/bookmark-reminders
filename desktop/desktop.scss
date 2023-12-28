@@ -1,0 +1,79 @@
+//temp
+
+.topic-list {
+}
+
+.bookmark-reminders {
+  display: none;
+}
+
+@media screen and (min-width: 767px) {
+  .bookmark-reminders {
+    display: block;
+    background: #c6ffdd; /* fallback for old browsers */
+    background: linear-gradient(to bottom, #d1d6f0, #bbece4);
+
+    width: 25%;
+    box-sizing: border-box;
+    float: right;
+    background-color: var(--secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    // target adjacent core layout element
+    ~ #list-area {
+      width: calc(75% - 2.5em);
+      float: left;
+    }
+
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+
+      h3 {
+        margin: 0;
+      }
+
+      .d-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+        color: #2f6fea;
+      }
+    }
+    &__bookmark {
+      display: flex;
+      flex-direction: column;
+      // border-bottom: 1px solid var(--primary-low);
+      padding-block: 0.25rem;
+    }
+    &__note {
+      color: var(--primary-high);
+      font-style: italic;
+    }
+
+    &__item {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    &__timestamp {
+      font-weight: bold;
+    }
+    &__link {
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    h4 {
+      font-weight: normal;
+      margin-bottom: 0.25em;
+      padding-bottom: 0.25rem;
+      margin-top: 1.5em;
+      border-bottom: 1px solid var(--primary-low-mid);
+    }
+  }
+}

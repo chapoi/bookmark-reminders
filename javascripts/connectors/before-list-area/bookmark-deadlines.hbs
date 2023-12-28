@@ -1,0 +1,53 @@
+<div class="bookmark-reminders">
+
+  <div class="bookmark-reminders__title">
+    <h3>Upcoming Reminders</h3>
+    {{d-icon "discourse-bookmark-clock"}}
+
+  </div>
+
+  {{#if (gt this.todayBookmarks.length 0)}}
+    <h4>Today</h4>
+
+    {{#each this.todayBookmarks as |bookmark|}}
+      <div class="bookmark-reminders__bookmark">
+
+        <div class="bookmark-reminders__item">
+          <a
+            href="{{bookmark.bookmarkable_url}}"
+            class="bookmark-reminders__link"
+          >{{bookmark.title}}</a>
+          in
+          <span class="bookmark-reminders__timestamp">
+            {{format-date bookmark.reminder_at format="tiny"}}</span>
+        </div>
+        <span class="bookmark-reminders__note"> {{bookmark.name}}</span>
+
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if (gt this.thisWeekBookmarks.length 0)}}
+    <h4>This week</h4>
+    {{#each this.thisWeekBookmarks as |bookmark|}}
+      <div class="bookmark-reminders__bookmark">
+        <div class="bookmark-reminders__item">
+          <a
+            href="{{bookmark.bookmarkable_url}}"
+            class="bookmark-reminders__link"
+          >{{bookmark.title}}</a>
+          in
+          <span class="bookmark-reminders__timestamp">
+            {{format-date bookmark.reminder_at format="tiny"}}</span>
+        </div>
+        <span class="bookmark-reminders__note"> {{bookmark.name}}</span>
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if
+    (and (gt this.thisWeekBookmarks.length 0) (gt this.todayBookmarks.length 0))
+  }}
+    None
+  {{/if}}
+</div>
