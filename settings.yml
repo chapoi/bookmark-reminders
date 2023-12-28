@@ -1,0 +1,6 @@
+color_1:
+  default: "#d1d6f0"
+  type: string
+color_2:
+  default: "#bbece4"
+  type: string
