@@ -3,6 +3,6 @@ en:
     description: "Bookmark reminders"
   reminders:
     in: "in"
-    no_reminders: "None"
+    no_reminders: "All clear! You can relax."
     expired: "expired"
     ago: "ago"

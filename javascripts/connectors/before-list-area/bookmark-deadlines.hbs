@@ -1,14 +1,11 @@
 {{#if this.currentUser}}
   <div class="bookmark-reminders">
-
     <div class="bookmark-reminders__title">
       <h3>Upcoming Reminders</h3>
-      {{d-icon "discourse-bookmark-clock"}}
-
     </div>
 
     {{#if (gt this.overdueBookmarks.length 0)}}
-      <h4 class="--overdue">Overdue</h4>
+      <h4 class="bookmark-reminders__subtitle --overdue">Overdue</h4>
 
       {{#each this.overdueBookmarks as |bookmark|}}
         <div class="bookmark-reminders__bookmark">
@@ -31,8 +28,10 @@
             >{{bookmark.title}}</a>
 
           </div>
-          <span class="bookmark-reminders__note"> {{bookmark.name}}</span>
-
+          {{#if bookmark.name}}
+            <span class="bookmark-reminders__note">
+              {{d-icon "far-edit"}}{{bookmark.name}}</span>
+          {{/if}}
         </div>
       {{/each}}
     {{/if}}
@@ -52,8 +51,10 @@
             <span class="bookmark-reminders__timestamp">
               {{format-date bookmark.reminder_at format="tiny"}}</span>
           </div>
-          <span class="bookmark-reminders__note"> {{bookmark.name}}</span>
-
+          {{#if bookmark.name}}
+            <span class="bookmark-reminders__note">
+              {{d-icon "far-edit"}}{{bookmark.name}}</span>
+          {{/if}}
         </div>
       {{/each}}
     {{/if}}
@@ -78,10 +79,18 @@
 
     {{#if
       (and
-        (gt this.thisWeekBookmarks.length 0) (gt this.todayBookmarks.length 0)
+        (eq this.thisWeekBookmarks.length 0) (eq this.todayBookmarks.length 0)
       )
     }}
-      {{theme-i18n "reminders.no_reminders"}}
+      <div class="bookmark-reminders__empty">
+        <img
+          class="bookmark-reminders__empty-placeholder"
+          src="{{theme-setting 'theme_uploads.cat'}}"
+        />
+        <span class="bookmark-reminders__empty-text">{{theme-i18n
+            "reminders.no_reminders"
+          }}</span>
+      </div>
     {{/if}}
   </div>
 {{/if}}

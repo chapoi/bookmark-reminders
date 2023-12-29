@@ -2,6 +2,7 @@
   "about_url": null,
   "license_url": null,
   "assets": {
+    "cat": "/assets/cat.png"
   },
   "name": "discourse-bookmark-deadline",
   "component": true
