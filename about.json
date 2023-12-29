@@ -4,6 +4,6 @@
   "assets": {
     "cat": "/assets/cat.png"
   },
-  "name": "discourse-bookmark-deadline",
+  "name": "discourse-bookmark-reminders",
   "component": true
 }
