@@ -1,6 +1,6 @@
 color_1:
-  default: "#d1d6f0"
+  default: "var(--color-tertiary-very-low)"
   type: string
 color_2:
-  default: "#bbece4"
+  default: "var(--primary-very-low)"
   type: string
