@@ -8,3 +8,7 @@ show_placeholder_img:
   default: true
   type: bool
   description: "If true, shows an image when there are no reminders. If unchecked, shows a message instead."
+placeholder_image:
+  type: upload
+  default: cat
+  description: "The image shown when there are no reminders."
