@@ -1,5 +1,5 @@
 color_1:
-  default: "var(--color-tertiary-very-low)"
+  default: "var(--tertiary-very-low)"
   type: string
 color_2:
   default: "var(--primary-very-low)"
