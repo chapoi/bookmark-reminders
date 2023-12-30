@@ -31,7 +31,10 @@ export default class BookmarkReminder extends Component {
 
     this.loadBookmarks().then((result) => {
       const restBookmarks = [];
-
+      console.log(result);
+      if (result.user_bookmark_list.bookmarks.length === 0) {
+        return;
+      }
       this.bookmarks = result.user_bookmark_list.bookmarks
         .filter((bookmark) => bookmark.reminder_at !== null)
         .forEach((bookmark) => {
