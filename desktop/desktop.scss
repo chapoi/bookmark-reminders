@@ -80,7 +80,6 @@
     &__empty {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -88,11 +87,13 @@
     &__empty-placeholder {
       width: 100%;
       max-width: 150px;
+      align-self: center;
     }
     &__empty-text {
       background: rgba(var(--secondary-rgb, 0.6));
       padding: 0.4em 0.8em;
       border-radius: 0.4em;
+      align-self: center;
     }
   }
 }

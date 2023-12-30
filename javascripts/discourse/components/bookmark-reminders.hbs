@@ -84,13 +84,19 @@
     }}
       {{#unless this.loading}}
         <div class="bookmark-reminders__empty">
-          <img
-            class="bookmark-reminders__empty-placeholder"
-            src="{{theme-setting 'theme_uploads.cat'}}"
-          />
-          <span class="bookmark-reminders__empty-text">{{theme-i18n
-              "reminders.no_reminders"
-            }}</span>
+          {{#if (theme-setting "show_placeholder_img")}}
+            <img
+              class="bookmark-reminders__empty-placeholder"
+              src="{{theme-setting 'theme_uploads.cat'}}"
+            />
+            <span class="bookmark-reminders__empty-text">{{theme-i18n
+                "reminders.no_reminders"
+              }}</span>
+          {{/if}}
+          {{#unless (theme-setting "show_placeholder_img")}}
+            {{theme-i18n "reminders.no_reminders"}}
+          {{/unless}}
+
         </div>
       {{/unless}}
     {{/if}}

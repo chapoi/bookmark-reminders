@@ -48,6 +48,7 @@ export default class BookmarkReminder extends Component {
             restBookmarks.push(bookmark);
           }
         });
+      this.loading = false;
     });
   }
 

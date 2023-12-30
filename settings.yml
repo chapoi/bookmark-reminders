@@ -4,3 +4,7 @@ color_1:
 color_2:
   default: "var(--primary-very-low)"
   type: string
+show_placeholder_img:
+  default: true
+  type: bool
+  description: "If true, shows an image when there are no reminders. If unchecked, shows a message instead."
