@@ -27,7 +27,7 @@ export default class BookmarkReminder extends Component {
 
     const endOfWeek = new Date(today);
     endOfWeek.setHours(23, 59, 59, 999);
-    endOfWeek.setDate(endOfWeek.getDate() + (6 - endOfWeek.getDay()));
+    endOfWeek.setDate(endOfWeek.getDate() + (7 - endOfWeek.getDay()));
 
     this.loadBookmarks().then((result) => {
       const restBookmarks = [];
