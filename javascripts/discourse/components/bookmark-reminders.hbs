@@ -82,15 +82,17 @@
         (eq this.thisWeekBookmarks.length 0) (eq this.todayBookmarks.length 0)
       )
     }}
-      <div class="bookmark-reminders__empty">
-        <img
-          class="bookmark-reminders__empty-placeholder"
-          src="{{theme-setting 'theme_uploads.cat'}}"
-        />
-        <span class="bookmark-reminders__empty-text">{{theme-i18n
-            "reminders.no_reminders"
-          }}</span>
-      </div>
+      {{#unless this.loading}}
+        <div class="bookmark-reminders__empty">
+          <img
+            class="bookmark-reminders__empty-placeholder"
+            src="{{theme-setting 'theme_uploads.cat'}}"
+          />
+          <span class="bookmark-reminders__empty-text">{{theme-i18n
+              "reminders.no_reminders"
+            }}</span>
+        </div>
+      {{/unless}}
     {{/if}}
   </div>
 {{/if}}

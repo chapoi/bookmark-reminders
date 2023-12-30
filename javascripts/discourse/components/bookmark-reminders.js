@@ -6,6 +6,7 @@ import { ajax } from "discourse/lib/ajax";
 
 export default class BookmarkReminder extends Component {
   @service currentUser;
+  @tracked loading = true;
   @tracked bookmarks;
   todayBookmarks = new TrackedArray();
   thisWeekBookmarks = new TrackedArray();
