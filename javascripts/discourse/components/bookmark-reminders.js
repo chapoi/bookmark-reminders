@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { TrackedArray } from "@ember-compat/tracked-built-ins";
 import { ajax } from "discourse/lib/ajax";
 
-export default class BookmarkDeadline extends Component {
+export default class BookmarkReminder extends Component {
   @service currentUser;
   @tracked bookmarks;
   todayBookmarks = new TrackedArray();

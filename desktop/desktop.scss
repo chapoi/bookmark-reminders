@@ -1,4 +1,5 @@
-.bookmark-reminders {
+.bookmark-reminders,
+.bookmark-reminders:has(~ .tc-right-sidebar) {
   display: none;
 }
 
@@ -7,12 +8,16 @@
     display: block;
     background: var(--tertiary-very-low); /* fallback for old browsers */
     background: linear-gradient(135deg, $color_1, $color_2);
-    width: 25%;
     box-sizing: border-box;
     float: right;
     padding: 1.5rem 1.3rem;
     border-radius: var(--d-border-radius-large);
     box-shadow: 2px 4px 12px rgba(var(--tertiary-rgb), 0.2);
+    width: 100%;
+
+    &:not(.tc-right-sidebar &) {
+      width: 25%;
+    }
 
     ~ #list-area {
       width: calc(75% - 2.5em);
@@ -20,10 +25,6 @@
     }
 
     &__title {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      justify-content: space-between;
       margin-bottom: 0.5rem;
 
       h3 {
